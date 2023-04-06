@@ -13,9 +13,21 @@ Terraform configuration for deploying cert-manager to Kubernetes cluster (Ranche
 - Make sure to add an `inputs.tfvars` file (which is set to be ignored by the repository) for setting the server target. Below is the format:
 ```
 master_node = {
-  host        = "`ip address of the master node`"
-  private_key = "`path/filename of the ssh private key for root user`"
+  host        = "ip address of the master node"
+  private_key = "path/filename of the ssh private key for root user"
   user        = "root"
+}
+
+cluster_issuer_settings = {
+  email                   = "email address to use for Let's Encrypt"
+  name                    = "letsencrypt-nginx"
+  private_key_secret_name = "letsencrypt-nginx-private-key"
+}
+
+cloud_flare = {
+  api_token_name  = "the name of the api token created at Cloudflare"
+  api_token_value = "the api token value from Cloudflare"
+  email           = "cloudflare account email address"
 }
 ```
 
