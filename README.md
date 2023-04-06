@@ -1,12 +1,15 @@
 # Deploying cert-manager to Kubernetes cluster via Terraform
 
-Terraform configuration for deploying cert-manager to Kubernetes cluster (Rancher's k3s)
+Terraform configuration for deploying cert-manager to Kubernetes cluster (Rancher's k3s).
 
+Uses the `dns01` as the challenge mechanism used for **Let's Encrypt** therefore, a Cloudflare account is needed to generate an API token. For more info, see https://blog.gurucomputing.com.au/s/blog/doc/lets-encrypt-certificates-KCnwwIWaSi#h-what-is-a-lets-encrypt-dns-challenge
 
 ## Prerequisites
 - Terraform CLI
 - Running Kubernetes cluster
 - The host that's running the Terraform CLI can SSH to the master node without using a password
+- A public domain name (i.e. registered on domain registrar like GoDaddy or Cloudflare)
+- Cloudflare account to be used as DNS provider for the domain name
 
 ## Important
 - This configuration was verified to work after provisioning a k3s cluster via https://github.com/christopher-tiangco/automate-k8s-cluster
